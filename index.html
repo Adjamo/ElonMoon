@@ -1,0 +1,1541 @@
+<html>
+<head>
+<script>
+
+//alert(Math.random());
+
+var i = 0;
+var txt = 'Buy our Meme coin on Binance Smart Chain now! Buy now before prices rise for the next funding round!                             ';
+var speed = 80;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }else{
+  
+    document.getElementById("demo").innerHTML = ''
+    
+    i = 0;
+    setTimeout(typeWriter, speed);
+    
+  }
+
+}
+
+
+
+
+</script>
+
+<style>
+
+body {
+    padding: 0;
+    margin: 0;
+    /*background-image: url("woj_bg.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 300px 100px;*/
+    /*background-color: #cccccc;*/
+    background-image: url("woj_bgx.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;    
+    background-size: 100vw 100vh;
+
+}
+
+.left {
+  padding-left: 1rem;
+  width: 100%;
+  height: 100%;
+  float: left;
+   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+.background_container{
+  background-image: url("woj_bg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* <= This one */
+}
+
+.right {
+  padding: 1rem;
+  float: right;
+  width: 70%;
+  height: 100%;
+  background-color: #FF1111;
+}
+
+img.spin {
+  transition: transform .7s ease-in-out;
+}
+img.spin:hover {
+  transform: rotate(360deg);
+}
+
+
+td {
+  vertical-align: top;
+} 
+
+
+.x {
+  border: 10px solid #98FF98;
+  
+} 
+
+
+div.boxed {
+  width: 500px;
+  padding: 10px;
+  border: 5px solid #98FF98;
+  margin: 0;
+  text-align: left;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+.containerx {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-size: 18;
+}
+
+.container_2 {
+  position: relative;
+  text-align: center;
+  color: pink;
+}
+
+.container_3 {
+  width:180px;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+
+
+
+a {font-family: 'Comic Sans MS', sans-serif; text-decoration:none; color: white;}
+h1 {font-family: 'Comic Sans MS', sans-serif;}
+h3 {font-size: 30; font-family: 'Comic Sans MS', sans-serif;}
+
+.bottom { vertical-align: bottom; }
+
+ .right {
+  position: absolute;
+  right: 50%;
+  width: 300px;
+  border: 0px solid #98FF98;
+  padding: 10px;
+} 
+
+.car{
+z-index: 999;
+position:relative;
+right:-130px;
+bottom:-30px;
+}
+
+ul {
+    text-align: center;
+    list-style-position: inside;
+}
+
+.top-right {
+  position: absolute;
+  top: -58px;
+  right: 46px;
+}
+
+.top-left {
+  position: absolute;
+  top: 30px;
+  left: 186px;
+}
+
+.center-right {
+  position: absolute;
+  top: 50%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+}
+
+.bottom-left {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.parent{
+    width:1200px;
+    height:1200px;
+    position:relative;
+    z-index:0;
+    left:-100;
+}
+
+.container_3{
+    position:absolute;
+    z-index:99;
+    top:0;
+    right:-50;
+}
+
+.container_3{
+    position:absolute;
+    z-index:99;
+    top:0;
+    right:100;
+}
+
+.texty {
+  color:red;
+  size:20;
+}
+
+
+
+</style>
+</head>
+<body id="grad1" onload="updateUI();typeWriter();raised();setInterval('getContractBalance()',5000);setInterval('raised()',5000);getContractBalance();" >
+
+<center>
+
+ <style>
+    /* Center alignment for container */
+    .container {
+      text-align: center; /* Center align all content */
+    }
+
+    /* Full width div */
+    .full-width {
+      width: 100%; /* Ensure the div spans 100% of the width */
+      box-sizing: border-box; /* Include padding and border in the width */
+      padding: 0; /* Remove any padding */
+      margin: 0 auto; /* Center the div horizontally */
+      text-align: left; /* Align the content of the div to the left */
+    }
+  </style>
+
+  <script>
+    window.addEventListener('load', async () => {
+      // Check if MetaMask is installed
+      if (window.ethereum) {
+        const web3 = new Web3(window.ethereum);
+        try {
+          // Request access to user's MetaMask accounts
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          // Get user's Ethereum address
+          const accounts = await web3.eth.getAccounts();
+          const address = accounts[0];
+          addy = address.substring(0,6) + ' ... ' + address.substring(address.length-6,address.length)
+          document.getElementById('walletAddress').innerText = addy;
+        } catch (error) {
+          console.error(error);
+          //alert('You need to allow access to your MetaMask account to use this feature.');
+        }
+      } else {
+        //alert('MetaMask extension is not detected. Please install MetaMask to use this feature.');
+      }
+    });
+
+    // Include Web3 library
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.2/web3.min.js';
+    script.type = 'text/javascript';
+    document.head.appendChild(script);
+  </script>
+  
+    <style>
+    /* Banner Styles */
+    .banner {
+      background-color: blue; /* Blue background color */
+      padding: 10px 0; /* Adjust padding */
+      width: 100%; /* Ensure the banner spans the full width of the page */
+      text-align: center; /* Center the content */
+      color: #fff; /* White text color */
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .banner a {
+      color: inherit; /* Inherit text color from parent */
+      text-decoration: none; /* Remove underline */
+      margin: 0 10px; /* Add space between links */
+      
+    }
+    .banner a:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
+  </style>
+  
+  <div class="banner">
+      <a href="#index">Home</a> <!-- Link to Home section -->
+      <a href="#roadmap">Roadmap</a> <!-- Link to Roadmap section -->
+      <a href="#token">Token</a> <!-- Link to Token section -->
+      <span id="walletAddress"></span> <!-- Placeholder for wallet address -->
+  </div>
+
+  
+
+<div width='100%' style="padding:0px; background-color:white; ">
+  <a style="font-size:3;">&nbsp;</a>
+</div>
+
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Elon Moon <img src="moon.png" style="width: 20px; height: 20px;"></h1>
+
+
+<center>
+
+
+
+<br><br>
+<table style="border:0px solid #98FF98;z-index:-2;">
+<tr style="border:0px solid #98FF98;z-index:-2;">
+<td style="border:0px solid #98FF98;z-index:-2;" align="right">
+
+
+<br><br><br><br>
+<img src="pepe-4chan.gif"  width="400" ><br><br>
+
+
+</td>
+<td style="border:0px solid #98FF98;z-index:-2;">
+
+<div class="containerx" style="position: relative;">
+  <img src="bubble_a.png" style="width:100%;" alt="Background Image">
+  <div class="centered" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;">
+    <p style="color:white;" id="demo" ></p>
+  </div>
+</div>
+
+<br><br>
+</p>
+
+
+</td>
+</tr>
+
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Buy Now</h1>
+
+
+<div class="fundraiser-box">
+    <div>
+        <h1><label for="etherAmount">BNB Amount:</label></h1>
+        <input type="input" id="etherAmount" min="0" placeholder="Enter amount in BNB">
+        <button id="depositButton" onclick="deposit(etherAmount.value)">Deposit BNB</button>
+        <button id="claimTokensButton" style="display:none" onclick="claimTokens()">Claim Tokens</button>
+    </div>
+
+    <h1>Your Tokens </h1>(released after launch)
+    <div id="balanceDisplay"></div>
+
+    <h1>BNB Raised: <span id="ethRaisedValue"></span> BNB</h1>
+
+    <div class="progress-bar">
+        <div class="progress" id="progressBar"></div>
+    </div>
+    <p id="fundingRound"></p>
+    <p id="tokensPerEther"></p>
+    
+      <button id="addTokenBtn">Add Token to MetaMask</button>
+    
+</div>
+
+<br><br><br><br><br><br><br>
+    <style>
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: gray;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #4caf50;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+   .fundraiser-box {
+        border-radius: 15px;
+        background-color: skyblue;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px; /* Adjust width as needed */
+        margin: 0 auto; /* Center the box horizontally */
+        border: 2px solid #3498db; /* Add blue border */
+    }
+
+    </style>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Function to add token to MetaMask
+  async function addTokenToMetaMask() {
+    try {
+      // Check if MetaMask is installed
+      if (window.ethereum) {
+        const provider = window.ethereum;
+
+        // Request access to MetaMask accounts
+        await provider.request({ method: 'eth_requestAccounts' });
+
+        // Add token to MetaMask
+        await provider.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: contractAddress, // Replace with your token contract address
+              symbol: 'ELONMOON', // Replace with your token symbol
+              decimals: 18, // Replace with the number of decimals of your token
+            },
+          },
+        });
+
+        alert("Token added to MetaMask successfully!");
+      } else {
+        alert("Please install MetaMask to add the token.");
+      }
+    } catch (error) {
+      console.error("Error adding token to MetaMask:", error);
+      alert("Error adding token to MetaMask. Please check the console for details.");
+    }
+  }
+
+  // Add click event listener to the button
+  const addTokenBtn = document.getElementById('addTokenBtn');
+  addTokenBtn.addEventListener('click', addTokenToMetaMask);
+});
+
+
+// Function to update UI based on fundraising status
+async function updateUI() {
+    try {
+        // Call the endFundraise function of the smart contract to check the status
+        const fundraisingEnded = await contract.methods.endFundraise().call();
+
+        if (fundraisingEnded) {
+            // If fundraising has ended, hide deposit button and show claim tokens button
+            document.getElementById('depositButton').style.display = 'none';
+            document.getElementById('claimTokensButton').style.display = 'block';
+            document.getElementById('etherAmount').style.display = 'none';
+
+        } else {
+            // If fundraising is ongoing, show deposit button and hide claim tokens button
+            document.getElementById('depositButton').style.display = 'block';
+            document.getElementById('claimTokensButton').style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Error updating UI:', error);
+        // Show error message
+        alert('Error updating UI: ' + error.message);
+    }
+}
+
+// Function to claim tokens
+async function claimTokens() {
+    try {
+        // Call the getCoins function of the smart contract
+        await contract.methods.getCoins().send({ from: ethereum.selectedAddress });
+
+        // Show success message
+        alert('Tokens claimed successfully!');
+    } catch (error) {
+        console.error('Error claiming tokens:', error);
+        // Show error message
+        alert('Error claiming tokens: ' + error.message);
+    }
+}
+
+// Function to get the balance from the smart contract
+async function getContractBalance() {
+
+    await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const accounts = await web3.eth.getAccounts();
+    contract.methods.getBalance().call({from: accounts[0]}, function(error, result) {
+        if (!error) {
+            // Display the balance in Ether (assuming Wei returned)
+            var balanceInEther = web3.utils.fromWei(result, 'ether');
+            document.getElementById('balanceDisplay').innerHTML = 'Balance: ' + balanceInEther + ' Tokens';
+        } else {
+            console.error('Error fetching balance:', error);
+        }
+    });
+}
+    
+    
+async function raised() {
+    // Get ethRaised value and display it
+    contract.methods.getEthRaised().call().then(function(result) {
+        var ethRaisedInEther = web3.utils.fromWei(result, 'ether');
+        document.getElementById("ethRaisedValue").innerText = ethRaisedInEther;
+
+        // Progress bar
+        // Determine current fundraising round
+        var fundraisingRound = Math.floor(ethRaisedInEther / 3000) + 1;
+
+        // Calculate percentage based on the current round
+        var percentage;
+        switch (fundraisingRound) {
+            case 1:
+                percentage = (ethRaisedInEther / (3000 * fundraisingRound)) * 100;
+                break;
+            case 2:
+                percentage = ((ethRaisedInEther - 3000) / (3000 * fundraisingRound)) * 100;
+                break;
+            case 3:
+                percentage = ((ethRaisedInEther - (3000 * fundraisingRound - 3000)) / (3000 * fundraisingRound)) * 100;
+                break;
+            case 4:
+                percentage = ((ethRaisedInEther - (3000 * fundraisingRound - 6000)) / (3000 * fundraisingRound)) * 100;
+                break;
+            case 5:
+                percentage = ((ethRaisedInEther - (3000 * fundraisingRound - 9000)) / (3000 * fundraisingRound)) * 100;
+                break;
+            default:
+                percentage = 0;
+        }
+
+        // Update progress bar
+        document.getElementById("progressBar").style.width = percentage + "%";
+        document.getElementById("progressBar").innerText = percentage.toFixed(2) + "%";
+
+        // Display current funding round
+        var currentRound = Math.floor(ethRaisedInEther / 3000) + 1;
+        document.getElementById("fundingRound").innerText = "Current Funding Round: " + currentRound;
+
+        // Calculate tokens per Ether for the current round
+        var tokensPerEther;
+        switch (currentRound) {
+            case 1:
+                tokensPerEther = 50000000000;// deleted a zero for Ether > BNB
+                break;
+            case 2:
+                tokensPerEther = 45000000000;
+                break;
+            case 3:
+                tokensPerEther = 40000000000;
+                break;
+            case 4:
+                tokensPerEther = 35000000000;
+                break;
+            case 5:
+                tokensPerEther = 30000000000;
+                break;
+            default:
+                tokensPerEther = 0;
+        }
+        document.getElementById("tokensPerEther").innerText = "Tokens per BNB: " + tokensPerEther;
+
+    }).catch(function(err) {
+        console.error(err);
+    });
+}
+    
+        // Contract address and ABI
+        const contractAddress = '0x1581addca4f71cc95f520c3fa6df7a92b687ab26';
+        const contractABI = [
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "burn",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "subtractedValue",
+				"type": "uint256"
+			}
+		],
+		"name": "decreaseAllowance",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "deposit",
+		"outputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "endFunding",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "getCoins",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "addedValue",
+				"type": "uint256"
+			}
+		],
+		"name": "increaseAllowance",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "mint",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "_symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf_",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "claimed",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "creator",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "endFundraise",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "ethRaised",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getBalance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getEthRaised",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "storeCoins",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+        // Set up web3 provider
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            alert('Please install MetaMask or connect to a Web3 provider');
+        }
+
+        // Create contract instance
+        const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+async function deposit(amountInEther) {
+    try {
+        const accounts = await web3.eth.getAccounts();
+        const amountInWei = web3.utils.toWei(amountInEther.toString(), 'ether');
+
+        await contract.methods.deposit(amountInWei).send({ from: accounts[0], value: amountInWei });
+        alert('Ether deposited successfully! Tokens minted. Refresh the page to see balance');
+    } catch (error) {
+        console.error('Error depositing Ether:', error);
+        alert('Error depositing Ether. Make sure you enter an amount.');
+    }
+}
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script>
+        
+        // Check if MetaMask is installed
+        if (window.ethereum) {
+            window.web3 = new Web3(window.ethereum);
+            window.ethereum.enable(); // Request account access if needed
+        } else {
+            alert('Please install MetaMask to interact with this page');
+        }
+
+        // Set the contract address and ABI
+        
+        // Create contract instance
+        //const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+
+
+
+    </script>
+
+<div id="roadmap">
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Roadmap</h1>
+</div>
+  <style>
+    /* Title styling */
+    .section-title {
+      color: #007bff; /* Blue title color */
+      text-align: center; /* Center align the title */
+      margin-bottom: 20px; /* Add space below the title */
+    }
+
+    /* Curved div styling */
+    .curved-box {
+      background-color: #f0f0f0; /* Light gray background color */
+      border-radius: 15px; /* Rounded corners */
+      padding: 20px; /* Padding inside the box */
+      margin-bottom: 20px; /* Add some space between boxes */
+    }
+
+    /* Content styling */
+    .checklist-item {
+      margin-bottom: 10px; /* Add space between checklist items */
+    }
+  </style>
+  
+<img src="brain_white.gif">
+
+<div class="curved-box">
+  <h1 class="yo">LAUNCH</h1>
+  <div class="checklist-item">
+    <img src="check_.png" width="20"> Website
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> Celebrity Youtubers
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> Coingeko listing
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> Coinmarketcap listing
+  </div>
+</div>
+
+<div class="curved-box">
+  <h1 class="yo">GROWTH</h1>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> 1 to 5 million Market Cap
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> Uniswap Listing
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> /biz/ ads
+  </div>
+  <!-- Add more growth checklist items here -->
+</div>
+
+<div class="curved-box">
+  <h1 class="yo">UTILITY</h1>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> 10 million Market Cap +
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> Second and third CEX listing
+  </div>
+  <div class="checklist-item">
+    <img src="empty_.png" width="20"> Reddit ads
+  </div>
+
+  <!-- Add more utility checklist items here -->
+</div>
+ <style>
+    /* Curved div styling */
+    .curved-box {
+      width:500px;
+      background-color: #f0f0f0; /* Light gray background color */
+      border-radius: 15px; /* Rounded corners */
+      padding: 20px; /* Padding inside the box */
+      margin-bottom: 20px; /* Add some space between boxes */
+    }
+
+    /* Content styling */
+    h1.yo {
+      color: #007bff; /* Blue header color */
+    }
+    
+    .checklist-item {
+      margin-bottom: 10px; /* Add space between checklist items */
+    }
+  </style>
+
+
+<br><br><br><br><br>
+
+
+
+
+
+
+<div id="token">
+<center>
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Tokenomics</h1>
+</div>
+</center>
+</div>
+
+</td></tr><tr><td>
+
+<div id="piechart"></div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Use', '%'],
+  ['Liquidity', 50],
+  ['Dev Costs', 5],
+  ['Marketing', 20],
+  ['Presale', 25],
+]);
+
+var options = {
+    title: ' ',
+    width: 950,
+   'backgroundColor': 'transparent',
+    height: 600,
+    is3D: true
+};
+
+  // Optional; add a title and set the width and height of the chart
+  //var options = {'title':' ', 'width':850, 'height':600};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+</td></tr></table>
+
+
+
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Meet the Team</h1>
+</div>
+
+<table>
+<tr>
+<td>
+<img src="_pepe.png">
+</td>
+<td>
+<img src="_wojak_question.png">
+</td>
+<td>
+<img src="_wojak_question.png">
+</td>
+<td>
+<img src="_wojak_question.png">
+</td>
+<td>
+<img src="_wojak_question.png">
+</td>
+</tr>
+<tr>
+<td>
+<b>Adjam</b>
+</td>
+<td>
+<b>Coming Soon</b>
+</td>
+<td>
+<b>Coming Soon</b>
+</td>
+<td>
+<b>Coming Soon</b>
+</td>
+<td>
+<b>Coming Soon</b>
+</td>
+
+</tr>
+</table>
+
+</a>
+
+<br><br><br><br><br><br>
+
+
+
+
+<div id="memes">
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Powered by Memes</h1>
+</div>
+
+
+<table>
+<tr>
+<td>
+
+<img src="community.png" style="width:100%;">
+</td></tr><tr>
+<td>
+
+<div style="font-size:20;color:white;">
+Memes power crypto!<br>
+<br>
+
+</div>
+</td></tr></table>
+
+</div>
+
+<br><br><br><br><br><br>
+
+
+
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Open Sourced</h1>
+</div>
+<br><br>
+
+<a href="https://github.com/Adjamo/ElonMoon/blob/main/ElonMoon.sol">
+<img src="octocat.png" width="200px">
+<img src="github.png" width="300px">
+</a>
+<br><br><br><br><br><br>
+
+<h1 style="color:white
+      text-align: center; /* Center align the title */
+      padding: 10px 20px; /* Add padding to the title */
+      border-radius: 10px; /* Rounded corners */
+      background-color: skyblue; /* Blue background color */
+      margin-bottom: 20px; /* Add space below the title */
+      display: inline-block; /* Display as inline block to fit content */" class="section-title">Coming soon</h1>
+</div>
+<br>
+<img src="pancake.png" >
+<img src="geko.png" width="400px" >
+
+<br><br><br><br><br><br>
+
+
+
+</center>
+
+
+
+</center>
+</body>
+</html>
