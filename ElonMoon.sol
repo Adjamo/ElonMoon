@@ -342,9 +342,7 @@ contract Ownable is Context {
 
 contract ELONMOON is Context, IBEP20, Ownable {
   using SafeMath for uint256;
-
-  mapping (address => uint256) private _balances;
-
+  
   mapping (address => mapping (address => uint256)) private _allowances;
 
   uint256 private _mine;
@@ -363,8 +361,6 @@ contract ELONMOON is Context, IBEP20, Ownable {
     mapping(address => uint256) public balanceOf_;
     mapping(address => bool) public claimed;
 
-  //1,800,000,000,000,000
-  //1,260,000,000,000,000,000,000 a quater
   constructor() public {
     creator = msg.sender;
     _name = "Elon Moon";
@@ -374,7 +370,7 @@ contract ELONMOON is Context, IBEP20, Ownable {
     //109,500,000,000 quater
     _mine = 328500000000 * 10**18;// 3 quaters
     _totalSupply = 438000000000 * 10**18;// all
-    _balances[msg.sender] = _mine;
+    balanceOf_[msg.sender] = _mine;
 
     emit Transfer(address(0), msg.sender, _mine);
   }
@@ -418,6 +414,8 @@ contract ELONMOON is Context, IBEP20, Ownable {
         require(!endFundraise, "Fundraising ended");
         
         //109500000000 total raised
+        //
+        //15000000000+13500000000+12000000000+11400000000+10800000000+10200000000+9600000000+27000000000=109500000000
         if (ethRaised < 3000 * 10**18) {//3000 * 10**18
             storeCoins[msg.sender] += msg.value * 5000000;//per ether they get
         } else if (ethRaised >= 3000 * 10**18 && ethRaised < 6000 * 10**18) {//
@@ -490,7 +488,7 @@ contract ELONMOON is Context, IBEP20, Ownable {
    * @dev See {BEP20-balanceOf}.
    */
   function balanceOf(address account) external view returns (uint256) {
-    return _balances[account];
+    return balanceOf_[account];
   }
 
   /**
@@ -618,8 +616,8 @@ contract ELONMOON is Context, IBEP20, Ownable {
     require(sender != address(0), "BEP20: transfer from the zero address");
     require(recipient != address(0), "BEP20: transfer to the zero address");
 
-    _balances[sender] = _balances[sender].sub(amount, "BEP20: transfer amount exceeds balance");
-    _balances[recipient] = _balances[recipient].add(amount);
+    balanceOf_[sender] = balanceOf_[sender].sub(amount, "BEP20: transfer amount exceeds balance");
+    balanceOf_[recipient] = balanceOf_[recipient].add(amount);
     emit Transfer(sender, recipient, amount);
   }
 
@@ -636,7 +634,7 @@ contract ELONMOON is Context, IBEP20, Ownable {
     require(account != address(0), "BEP20: mint to the zero address");
 
     _totalSupply = _totalSupply.add(amount);
-    _balances[account] = _balances[account].add(amount);
+    balanceOf_[account] = balanceOf_[account].add(amount);
     emit Transfer(address(0), account, amount);
   }
 
@@ -654,7 +652,7 @@ contract ELONMOON is Context, IBEP20, Ownable {
   function _burn(address account, uint256 amount) internal {
     require(account != address(0), "BEP20: burn from the zero address");
 
-    _balances[account] = _balances[account].sub(amount, "BEP20: burn amount exceeds balance");
+    balanceOf_[account] = balanceOf_[account].sub(amount, "BEP20: burn amount exceeds balance");
     _totalSupply = _totalSupply.sub(amount);
     emit Transfer(account, address(0), amount);
   }
